@@ -1,0 +1,53 @@
+def run_quiz():
+    questions = [
+        {
+            "question": "1. What is the capital of India?",
+            "options": ["A. Mumbai", "B. Delhi", "C. Kolkata", "D. Chennai"],
+            "answer": "B"
+        },
+        {
+            "question": "2. Which number is a prime number?",
+            "options": ["A. 4", "B. 6", "C. 7", "D. 9"],
+            "answer": "C"
+        },
+        {
+            "question": "3. What is the square root of 64?",
+            "options": ["A. 6", "B. 7", "C. 8", "D. 9"],
+            "answer": "C"
+        },
+        {
+            "question": "4. Who developed Python language?",
+            "options": ["A. Dennis Ritchie", "B. James Gosling", "C. Guido van Rossum", "D. Elon Musk"],
+            "answer": "C"
+        },
+        {
+            "question": "5. Which planet is known as the Red Planet?",
+            "options": ["A. Earth", "B. Mars", "C. Jupiter", "D. Venus"],
+            "answer": "B"
+        }
+    ]
+
+    score = 0
+
+    for q in questions:
+        print("\n" + q["question"])
+        for option in q["options"]:
+            print(option)
+
+        user_answer = input("Enter your answer (A/B/C/D): ").upper()
+
+        if user_answer == q["answer"]:
+            print("Correct!")
+            score += 1
+        else:
+            print("Wrong! Correct answer is:", q["answer"])
+
+    print("\n=== Quiz Finished ===")
+    print("Your Score:", score, "/", len(questions))
+
+    percentage = (score / len(questions)) * 100
+    print("Percentage:", percentage, "%")
+
+
+# Run the quiz
+run_quiz()
