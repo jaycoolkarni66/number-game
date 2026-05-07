@@ -1,0 +1,55 @@
+def calculate_grade(percentage):
+    if percentage >= 90:
+        return "A+"
+    elif percentage >= 75:
+        return "A"
+    elif percentage >= 60:
+        return "B"
+    elif percentage >= 50:
+        return "C"
+    elif percentage >= 35:
+        return "D"
+    else:
+        return "Fail"
+
+
+print("===== Student Report Card System =====")
+
+name = input("Enter Student Name: ")
+roll_no = input("Enter Roll Number: ")
+
+subjects = ["English", "Maths", "Science", "Social Science", "Computer"]
+
+marks = []
+
+for subject in subjects:
+    mark = int(input(f"Enter marks for {subject}: "))
+    
+    while mark < 0 or mark > 100:
+        print("Invalid marks! Enter marks between 0 and 100.")
+        mark = int(input(f"Enter marks for {subject}: "))
+    
+    marks.append(mark)
+
+total = sum(marks)
+percentage = total / len(subjects)
+grade = calculate_grade(percentage)
+
+print("\n===== REPORT CARD =====")
+print("Student Name :", name)
+print("Roll Number  :", roll_no)
+
+print("\nSubject Marks")
+for i in range(len(subjects)):
+    print(subjects[i], ":", marks[i])
+
+print("\nTotal Marks  :", total, "/ 500")
+print("Percentage   :", round(percentage, 2), "%")
+print("Grade        :", grade)
+
+if grade == "Fail":
+    print("Result       : Failed")
+else:
+    print("Result       : Passed")
+
+print("\n===== Thank You =====")
